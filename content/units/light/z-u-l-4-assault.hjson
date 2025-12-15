@@ -1,0 +1,65 @@
+type: mech
+name: Assault Point
+description: Rapidly fires bullets at enemy targets.
+
+speed: 1
+
+hitSize: 26
+health: 23000
+armor: 16
+itemCapacity: 25
+fogRadius: 20
+
+outlineColor: 2e2c34ff
+
+weapons: [
+  {
+    reload: 300
+    x: 16
+    shootY: 6
+    inaccuracy: 5
+    alternate: false
+
+    shoot: {
+      firstShotDelay: 0
+      shots: 60
+      shotDelay: 3
+    }
+
+    bullet: {
+      type: BasicBulletType
+      damage: 50
+      speed: 7
+      lifetime: 45
+
+      backColor: e4be60
+      frontColor: fffdab
+      width: 8
+      height: 16
+
+      trailRotation: true
+      trailInterval: 6
+      trailWidth: 1
+      trailLength: 12
+      trailColor: fffdabff
+      trailEffect: none
+
+      shootEffect: {
+	type: ParticleEffect
+	particles: 2
+	cone: 30
+	length: 16
+	colorFrom: fffdabff
+	colorTo: e4be60ff
+	sizeFrom: 3
+	sizeTo: 0
+	line: true
+	lifetime: 15
+      }
+      smokeEffect: none
+      despawnEffect: none
+      hitEffect: none
+    }
+
+  }
+]

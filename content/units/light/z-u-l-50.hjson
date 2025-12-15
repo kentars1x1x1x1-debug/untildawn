@@ -1,0 +1,78 @@
+name: 50
+description: Builds structures to defend the core. Dashes toward enemies.
+
+
+flying: true
+speed: 3
+accel: 0.1
+drag: 0.05
+lowAltitude: true
+
+hitSize: 10
+health: 750
+armor: 0
+itemCapacity: 20
+mineSpeed: 4.5
+mineTier: 1
+buildSpeed: 0.5
+fogRadius: 0
+
+outlineColor: 262630ff
+engineOffset: 7
+engineSize: 2.5
+engines: [
+  {
+    x: 6
+    y: -5
+    rotation: -45
+    radius: 2
+  }
+  {
+    x: -6
+    y: -5
+    rotation: -135
+    radius: 2
+  }
+]
+
+parts: [
+  {
+    type: RegionPart
+    suffix: -spike
+    progress: reload
+    mirror: false
+    layerOffset: -0.001
+    x: 0
+    y: 0
+    moveY: 5
+  }
+]
+
+weapons: [
+  {
+    reload: 120
+    mirror: false
+    x: 0
+    y: 0
+    shootY: 5
+    shootStatus: unmoving
+    shootStatusDuration: 30
+
+    bullet: {
+      type: BulletType
+      recoil: -3
+      damage: 40
+      speed: 4
+      lifetime: 10
+      pierce: true
+      pierceBuildings: true
+      removeAfterPierc: false
+
+      shootEffect: none
+      despawnEffect: none
+      hitEffect: none
+    }
+
+
+  }
+]

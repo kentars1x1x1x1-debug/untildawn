@@ -1,0 +1,55 @@
+type: mech
+name: King
+description: Fires bolts of light at enemy targets.
+
+speed: 1
+
+hitSize: 10
+health: 450
+armor: 1
+itemCapacity: 25
+fogRadius: 5
+
+outlineColor: 2e2c34ff
+
+weapons: [
+  {
+    reload: 30
+    x: 8
+    shootY: 3
+
+    bullet: {
+      type: BasicBulletType
+      damage: 15
+      speed: 5
+      lifetime: 35
+
+      backColor: e4be60
+      frontColor: fffdab
+      width: 6
+      height: 10
+
+      trailLength: 4
+      trailEffect: none
+      trailColor: e4be60
+      trailWidth: 1.8
+
+      shootEffect: {
+	type: ParticleEffect
+	particles: 2
+	cone: 30
+	length: 16
+	colorFrom: fffdabff
+	colorTo: e4be60ff
+	sizeFrom: 3
+	sizeTo: 0
+	line: true
+	lifetime: 15
+      }
+      smokeEffect: none
+      despawnEffect: hitBulletColor
+      hitEffect: hitBulletColor
+    }
+
+  }
+]

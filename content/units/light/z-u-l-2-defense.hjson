@@ -1,0 +1,126 @@
+type: mech
+name: Defense Point
+description: Fires balls of lightning at enemy targets.
+
+speed: 0.65
+
+hitSize: 15
+health: 1850
+armor: 6
+itemCapacity: 60
+fogRadius: 8
+
+outlineColor: 2e2c34ff
+
+weapons: [
+  {
+    name: shock
+    reload: 300
+    x: 0
+    shootY: 6
+    mirror: false
+
+    shoot: {
+      firstShotDelay: 58
+    }
+
+    parts: [
+      {
+        type: RegionPart
+        suffix: -mandible
+        mirror: true
+	under: true
+        progress: charge
+    
+        moveX: 1
+        moveRot: -20
+        y: 0
+        x: 0
+      }
+    ]
+
+    parentizeEffects: true
+
+    bullet: {
+      type: BasicBulletType
+      sprite: large-orb
+      damage: 30
+      splashDamage: 22
+      splashDamageRadius: 24
+
+      speed: 1
+      lifetime: 240
+      followAimSpeed: 2
+      pierce: true
+      pierceCap: 3
+      keepVelocity: false
+
+      lightning: 3
+      lightningDamage: 12
+      lightningLength: 5
+      lightningLengthRand: 2
+      lightningColor: fffdabff
+
+      backColor: e4be60
+      frontColor: fffdab
+      width: 16
+      height: 16
+      shrinkY: 0
+
+      bulletInterval: 5
+      intervalBullet: {
+	type: LightningBulletType
+	damage: 25
+	lifetime: 0
+	lightningLength: 4
+        lightningLengthRand: 2
+        lightningColor: fffdabff
+      }
+
+      chargeEffect: {
+	type: ParticleEffect
+	particles: 1
+	randLength: false
+	lifetime: 60
+	sizeTo: 6
+	length: 0
+	cone: 0
+	baseLength: 3
+	colorFrom: e4be60ff
+	colorTo: fffdabff
+        rotWithParent: true
+      }
+
+      shootEffect: {
+	type: WaveEffect
+	sizeFrom: 0
+	sizeTo: 24
+	colorFrom: fffdabff
+	colorTo: e4be60ff
+	interp: pow3Out
+	strokeFrom: 4
+	lifetime: 15
+      }
+      smokeEffect: none
+      hitEffect: {
+	type: ExplosionEffect
+	lifetime: 30
+	waveColor: fffdabff
+	sparkColor: fffdabff
+	waveRad: 20
+	sparkRad: 26
+	smokeRad: 26
+      }
+      despawnEffect: {
+	type: ExplosionEffect
+	lifetime: 30
+	waveColor: fffdabff
+	sparkColor: fffdabff
+	waveRad: 20
+	sparkRad: 26
+	smokeRad: 26
+      }
+    }
+
+  }
+]

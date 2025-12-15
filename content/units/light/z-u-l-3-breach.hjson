@@ -1,0 +1,120 @@
+type: mech
+name: Breach Point
+description: Fires piercing bolts at enemy targets.
+
+speed: 0.4
+
+hitSize: 20
+health: 6800
+armor: 13
+itemCapacity: 95
+fogRadius: 12
+
+outlineColor: 2e2c34ff
+
+weapons: [
+  {
+    name: breach
+    reload: 30
+    x: 16.5
+    shootY: 10
+    layerOffset: -0.001
+
+    parts: [
+      {
+	type: RegionPart
+	suffix: -barrel
+	progress: recoil
+	moveY: -5
+	under: true
+      }
+    ]
+
+    parentizeEffects: true
+
+    bullet: {
+      type: BasicBulletType
+      damage: 90
+      splashDamage: 45
+      splashDamageRadius: 32
+      speed: 8
+      lifetime: 25
+      pierce: true
+      pierceCap: 2
+
+      backColor: e4be60
+      frontColor: fffdab
+      width: 8
+      height: 14
+
+      trailRotation: true
+      trailInterval: 6
+      trailWidth: 2
+      trailLength: 15
+      trailColor: fffdabff
+      trailEffect: {
+	type: MultiEffect
+	effects: [
+	  {
+	  type: ParticleEffect
+	  particles: 4
+	  cone: 30
+	  length: 24
+	  sizeFrom: 4
+	  strokeFrom: 4
+	  line: true
+	  colorFrom: fffdabff
+	  colorTo: e4be60ff
+	  lifetime: 15
+	  }
+	  {
+	  type: WaveEffect
+	  sizeFrom: 0
+	  sizeTo: 4
+	  colorFrom: fffdabff
+	  colorTo: e4be60ff
+	  interp: pow3Out
+	  strokeFrom: 4
+	  lifetime: 15
+	  }
+	]
+      }
+
+      shootEffect: {
+	type: ParticleEffect
+	particles: 8
+	cone: 30
+	length: 45
+	interp: circleOut
+	colorFrom: fffdabff
+	colorTo: 4d4d4dff
+	sizeFrom: 10
+	sizeTo: 0
+	lifetime: 60
+      }
+      smokeEffect: none
+      hitEffect: {
+	type: ExplosionEffect
+	lifetime: 45
+	waveColor: fffdabff
+	sparkColor: fffdabff
+	waveRad: 24
+	sparkRad: 30
+	smokeRad: 30
+	smokeSize: 5.5
+      }
+      despawnEffect: {
+	type: ExplosionEffect
+	lifetime: 45
+	waveColor: fffdabff
+	sparkColor: fffdabff
+	waveRad: 24
+	sparkRad: 30
+	smokeRad: 30
+	smokeSize: 8
+	smokeColor: fffdabff
+      }
+    }
+
+  }
+]

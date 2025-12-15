@@ -1,0 +1,12 @@
+name: untildawn-mod
+displayName: Until Dawn
+author: Kalimar
+description:
+  '''
+   Light and dark.
+  
+  '''
+version: 0.0.1
+minGameVersion: 136
+dependencies: []
+hideBrowser: true
