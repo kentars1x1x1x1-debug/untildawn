@@ -44,15 +44,13 @@ weapons: [
     bullet: {
       type: BasicBulletType
       sprite: large-orb
-      damage: 30
-      splashDamage: 22
+      damage: 60
+      splashDamage: 45
       splashDamageRadius: 24
 
       speed: 1
       lifetime: 240
       followAimSpeed: 2
-      pierce: true
-      pierceCap: 3
       keepVelocity: false
 
       lightning: 3

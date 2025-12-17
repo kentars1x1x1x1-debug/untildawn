@@ -2,63 +2,145 @@ type: mech
 name: Assault Point
 description: Rapidly fires bullets at enemy targets.
 
-speed: 1
+speed: 0.3
 
 hitSize: 26
-health: 23000
+health: 16500
 armor: 16
-itemCapacity: 25
+itemCapacity: 110
 fogRadius: 20
 
 outlineColor: 2e2c34ff
 
 weapons: [
   {
-    reload: 300
-    x: 16
-    shootY: 6
+    name: assault
+    reload: 6
+    x: 18
+    shootY: 9
     inaccuracy: 5
-    alternate: false
+    alternate: true
+    layerOffset: -0.001
+
+    shootStatus: slow
+    shootStatusDuration: 15
+
+    parts: [
+      {
+	type: RegionPart
+	suffix: -main
+	progress: warmup
+	moveX: 6
+	x: -6
+      }
+      {
+	type: RegionPart
+	suffix: -barrel
+	progress: warmup
+	moveX: 6
+	x: -6
+	under: true
+	moves: [
+	  {
+	  type: PartMove
+	  progress: recoil
+	  y: -4
+	  }
+	]
+      }
+      {
+	type: RegionPart
+	suffix: -mag
+	progress: warmup
+	moveX: 6
+	moveY: -6
+	x: -6
+	under: true
+	moves: [
+	  {
+	  type: PartMove
+	  progress: reload
+	  y: -4
+	  }
+	]
+      }
+    ]
 
     shoot: {
-      firstShotDelay: 0
-      shots: 60
-      shotDelay: 3
+      firstShotDelay: 5
     }
 
     bullet: {
       type: BasicBulletType
-      damage: 50
+      damage: 45
       speed: 7
-      lifetime: 45
+      lifetime: 35
+      splashDamage: 16
+      splashDamageRadius: 28
 
       backColor: e4be60
       frontColor: fffdab
-      width: 8
+      width: 10
       height: 16
 
       trailRotation: true
-      trailInterval: 6
-      trailWidth: 1
+      trailInterval: 4
+      trailWidth: 2
       trailLength: 12
       trailColor: fffdabff
-      trailEffect: none
+      trailEffect: {
+	type: ParticleEffect
+	particles: 3
+	cone: 30
+	length: -24
+	sizeFrom: 2
+	region: "square"
+	colorFrom: fffdabff
+	colorTo: e4be60ff
+	lifetime: 15
+      }
 
       shootEffect: {
 	type: ParticleEffect
 	particles: 2
 	cone: 30
-	length: 16
+	length: 32
+	interp: circleOut
 	colorFrom: fffdabff
-	colorTo: e4be60ff
-	sizeFrom: 3
+	colorTo: e4be6000
+	sizeFrom: 4
 	sizeTo: 0
-	line: true
-	lifetime: 15
+	lifetime: 45
       }
+
+      lightning: 2
+      lightningCone: 90
+      lightningDamage: 16
+      lightningLength: 5
+      lightningLengthRand: 4
+      lightningColor: fffdabff
+
       smokeEffect: none
-      despawnEffect: none
-      hitEffect: none
+      despawnEffect: {
+	type: ExplosionEffect
+	lifetime: 15
+	waveColor: fffdabff
+	sparkColor: fffdabff
+	waveRad: 28
+	sparkRad: 32
+	smokeRad: 32
+	smokeSize: 3
+      }
+      hitEffect: {
+	type: ExplosionEffect
+	lifetime: 15
+	waveColor: fffdabff
+	sparkColor: fffdabff
+	waveRad: 28
+	sparkRad: 32
+	smokeRad: 32
+	smokeSize: 3
+      }
     }
 
   }
